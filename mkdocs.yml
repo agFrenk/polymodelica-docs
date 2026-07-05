@@ -1,0 +1,94 @@
+site_name: PolyModelica
+site_description: User guide for the PolyModelica dialect — polymorphic arrays for Modelica
+site_url: https://agfrenk.github.io/polymodelica-docs/
+repo_url: https://github.com/agFrenk/polymodelica-docs
+repo_name: agFrenk/polymodelica-docs
+
+validation:
+  links:
+    absolute_links: warn
+    unrecognized_links: warn
+  anchors: warn
+
+theme:
+  name: material
+  icon:
+    logo: material/vector-polyline
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.footer
+    - navigation.top
+    - navigation.sections
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: [snippets]
+      check_paths: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: es
+          name: Español
+          build: true
+          site_description: Guía de usuario del dialecto PolyModelica — arrays polimórficos para Modelica
+          nav_translations:
+            Home: Inicio
+            Getting started: Primeros pasos
+            Language guide: Guía del lenguaje
+            Polyvectors: Polyvectors
+            Access and slicing: Acceso y slicing
+            Iteration: Iteración
+            Type dispatch: Despacho por tipo
+            Comprehensions: Comprehensions
+            Lowering: Lowering
+            Errors and limitations: Errores y limitaciones
+            Examples: Ejemplos
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Language guide:
+      - Polyvectors: language/polyvector.md
+      - Access and slicing: language/access.md
+      - Iteration: language/iteration.md
+      - Type dispatch: language/type-dispatch.md
+      - Comprehensions: language/comprehensions.md
+  - Lowering: lowering.md
+  - Errors and limitations: errors.md
+  - Examples: examples.md

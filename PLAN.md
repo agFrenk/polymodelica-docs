@@ -116,8 +116,9 @@ más natural — el TODO de análisis manda sobre este esqueleto.
 
 ## Datos verificados reutilizables (sesión 2026-07-05)
 
-- `Economy.mo` simula ok: `totalWealth(10) = 32.78`, `taxRevenue(10) = 7.13`
-  (con `der(wealth)=0.6` para Worker da otros valores; el archivo actual usa 0.6).
+- `Economy.mo` simula ok (re-verificado con el archivo actual, `der(wealth)=0.6`):
+  `totalWealth(10) = 35.778`, `taxRevenue(10) = 7.583`. Cierra con la solución
+  analítica: 3·(1+0.6·10) + 2·e² = 35.778.
 - Lowering de Economy (salida real de `list()`): polyvector →
   `Worker agent_agents_worker[3]` + `Firm agent_agents_firm[2]` con annotations
   `__PolyModelica`; `sum(agents.wealth)` → `sum(cat(1, agent_agents_worker.wealth,
@@ -135,8 +136,19 @@ más natural — el TODO de análisis manda sobre este esqueleto.
   neutro tipo "podés"/"declarás" está ok, es para la tesis de Agustín).
 - Commits: convencionales (`docs: ...`), sin Co-Authored-By.
 
-## Deploy (después, opcional)
+## Deploy (decidido: GitHub Pages con Actions)
 
-Para la presentación alcanza `mkdocs serve` local. Si se quiere publicar:
-crear repo en GitHub (p.ej. `agFrenk/polymodelica-docs`) y `mkdocs gh-deploy`,
-o GitHub Pages con Actions. Decidirlo con Agustín.
+Agustín pidió que la doc se pueda ver sin levantar nada local (para mostrarla
+a los profesores). Repo público `agFrenk/polymodelica-docs`; cada push a
+`main` corre `.github/workflows/deploy.yml` (build `--strict` + deploy a
+Pages). URL: https://agfrenk.github.io/polymodelica-docs/
+
+## Validación de snippets
+
+- `snippets/*.mo` — cada snippet de la doc es un modelo completo; las páginas
+  lo incluyen vía `--8<--` (pymdownx.snippets), así lo publicado es lo validado.
+- `scripts/check_snippets.sh` — corre todos contra el omc del fork:
+  los de `snippets/` deben pasar `checkModel`; los de `snippets/errors/` deben
+  fallar con el error declarado en su primera línea (`// expect-error: ...`).
+- `scripts/polylist.sh Archivo.mo [Clase]` — muestra el lowering real
+  (`list()`) para los bloques "Lowered Modelica" de la doc.
