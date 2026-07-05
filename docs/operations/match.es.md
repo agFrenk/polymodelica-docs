@@ -59,6 +59,51 @@ end match;
       end for;
     ```
 
+## Estrechamiento de tipo en los cuerpos de los cases
+
+Dentro del cuerpo de un case el elemento queda **estrechado** al tipo del
+case, exactamente igual que en una rama `if s is A`
+([Consultar el tipo de un elemento](test-types.md#estrechamiento-de-tipo)) —
+así que los campos que solo existen en un subtipo son accesibles bajo su
+case:
+
+=== "PolyModelica"
+
+    ```modelica
+    --8<-- "MatchNarrow.mo"
+    ```
+
+=== "Modelica loweado"
+
+    ```modelica
+    Real w[4];
+    equation
+      for s in 1:2 loop
+        w[s] = base_v_a[s].a;
+      end for;
+      for s in 1:2 loop
+        w[2 + s] = base_v_b[s].b;
+      end for;
+    ```
+
+`s.a` es legal bajo `case A:` y `s.b` bajo `case B:`, aunque ninguno de los
+dos campos exista en `Base`. Un `case isSubtype Mid:` estrecha a `Mid`, así
+que los campos declarados en `Mid` son accesibles.
+
+!!! warning "Los OR-patterns estrechan a lo que los tipos comparten"
+
+    Bajo `case A | B:` el cuerpo se emite para **ambos** tipos, así que solo
+    puede usar campos comunes a todos ellos. Esto no compila:
+
+    ```modelica
+    match s
+      case A | B: w[s] = s.a;   // Error: Variable base_v_b[s].a
+    end match;                  //        not found in scope
+    ```
+
+    Partí el case (`case A:` / `case B:`) cuando los cuerpos necesitan
+    campos específicos del subtipo.
+
 ## Reglas
 
 - **Gana el primer match.** Con cases superpuestos (`case C:` antes de
@@ -68,9 +113,6 @@ end match;
   polyvector debe estar cubierto por algún case o por `otherwise:`; un tipo
   faltante es un error de compilación que nombra el tipo sin cubrir
   ([Errores y limitaciones](../errors.md#errores-de-despacho-e-iteracion)).
-- Dentro del cuerpo de un case el elemento queda **estrechado** al tipo del
-  case, exactamente igual que con los predicados — `s.c` es legal bajo
-  `case isSubtype Mid:`.
 
 ## Relacionado
 

@@ -58,6 +58,49 @@ end match;
       end for;
     ```
 
+## Type narrowing in case bodies
+
+Inside a case body the element is **narrowed** to the case's type, exactly
+as with an `if s is A` branch ([Test an element's type](test-types.md#type-narrowing)) —
+so fields that only exist on one subtype are accessible under its case:
+
+=== "PolyModelica"
+
+    ```modelica
+    --8<-- "MatchNarrow.mo"
+    ```
+
+=== "Lowered Modelica"
+
+    ```modelica
+    Real w[4];
+    equation
+      for s in 1:2 loop
+        w[s] = base_v_a[s].a;
+      end for;
+      for s in 1:2 loop
+        w[2 + s] = base_v_b[s].b;
+      end for;
+    ```
+
+`s.a` is legal under `case A:` and `s.b` under `case B:`, even though
+neither field exists on `Base`. A `case isSubtype Mid:` narrows to `Mid`,
+so fields declared in `Mid` are accessible.
+
+!!! warning "OR-patterns narrow to what the types share"
+
+    Under `case A | B:` the body is emitted for **both** types, so it may
+    only use fields common to all of them. This fails to compile:
+
+    ```modelica
+    match s
+      case A | B: w[s] = s.a;   // Error: Variable base_v_b[s].a
+    end match;                  //        not found in scope
+    ```
+
+    Split the case (`case A:` / `case B:`) when the bodies need
+    subtype-specific fields.
+
 ## Rules
 
 - **First match wins.** With overlapping cases (`case C:` before
@@ -67,8 +110,6 @@ end match;
   polyvector must be covered by some case or by `otherwise:`; a missing type
   is a compile error naming the uncovered type
   ([Errors and limitations](../errors.md#dispatch-and-iteration-errors)).
-- Inside a case body the element is **narrowed** to the case's type, exactly
-  as with predicates — `s.c` is legal under `case isSubtype Mid:`.
 
 ## See also
 
