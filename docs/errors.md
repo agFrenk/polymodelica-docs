@@ -156,9 +156,10 @@ A subtype-only field in such a body fails with a generic
 `Variable ... not found in scope` error (not a dedicated `PolyModelica:`
 message) pointing at the generated component. This is a known limitation
 slated to be improved in a future revision — ideally with per-type checking
-and a dedicated error message. For now, write one explicit branch per type
-(`case A:` / `case B:`, or `elseif isType(s, B)`) when a body needs
-subtype-specific fields.
+and a dedicated error message (tracked as
+[openmodelica-poly#6](https://github.com/agFrenk/openmodelica-poly/issues/6)).
+For now, write one explicit branch per type (`case A:` / `case B:`, or
+`elseif isType(s, B)`) when a body needs subtype-specific fields.
 
 ### Scope of the constructs
 

@@ -157,9 +157,11 @@ Un campo específico de un subtipo en un cuerpo así falla con un error
 genérico `Variable ... not found in scope` (no un mensaje `PolyModelica:`
 dedicado) que apunta al componente generado. Es una limitación conocida,
 marcada para mejorar en una revisión futura — idealmente con chequeo por
-tipo y un mensaje de error dedicado. Por ahora, escribí una rama explícita
-por tipo (`case A:` / `case B:`, o `elseif isType(s, B)`) cuando un cuerpo
-necesita campos específicos del subtipo.
+tipo y un mensaje de error dedicado (registrada como
+[openmodelica-poly#6](https://github.com/agFrenk/openmodelica-poly/issues/6)).
+Por ahora, escribí una rama explícita por tipo (`case A:` / `case B:`, o
+`elseif isType(s, B)`) cuando un cuerpo necesita campos específicos del
+subtipo.
 
 ### Alcance de las construcciones
 
