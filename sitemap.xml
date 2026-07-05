@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/errors/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/errors/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/errors/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/examples/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/examples/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/examples/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/getting-started/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/getting-started/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/lowering/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/lowering/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/lowering/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/cardinality/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/cardinality/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/cardinality/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/comprehend/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/comprehend/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/comprehend/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/connect/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/connect/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/connect/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/declare/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/declare/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/declare/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/index-element/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/index-element/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/index-element/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/iterate/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/iterate/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/iterate/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/match/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/match/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/match/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/project-field/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/project-field/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/project-field/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/slice-range/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/slice-range/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/slice-range/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/operations/test-types/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/test-types/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/test-types/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/errors/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/errors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/errors/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/examples/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/examples/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/examples/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/getting-started/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/getting-started/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/lowering/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/lowering/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/lowering/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/cardinality/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/cardinality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/cardinality/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/comprehend/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/comprehend/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/comprehend/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/connect/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/connect/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/connect/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/declare/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/declare/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/declare/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/index-element/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/index-element/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/index-element/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/iterate/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/iterate/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/iterate/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/match/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/match/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/match/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/project-field/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/project-field/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/project-field/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/slice-range/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/slice-range/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/slice-range/"/>
+    </url>
+    <url>
+        <loc>https://agfrenk.github.io/polymodelica-docs/es/operations/test-types/</loc>
+        <lastmod>2026-07-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://agfrenk.github.io/polymodelica-docs/es/operations/test-types/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agfrenk.github.io/polymodelica-docs/operations/test-types/"/>
+    </url>
+</urlset>
