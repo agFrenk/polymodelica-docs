@@ -62,6 +62,23 @@ subtipo son accesibles:
 
 `s.a` es legal en la rama `then` porque ahí se sabe que `s` es un `A`.
 
+!!! warning "El `else` estrecha a *los tipos restantes*, no a un tipo"
+
+    La rama `else` se emite para **todos** los sub-arrays cuya condición dio
+    falsa. `s.b` arriba funciona solo porque `B` es el único tipo no-`A` del
+    polyvector. Con un tercer tipo `C` (sin campo `b`) el mismo modelo no
+    compila, con un error genérico que apunta al componente generado:
+
+    ```
+    Error: Variable base_v_c[s].b not found in scope
+    ```
+
+    En un cuerpo `else` (o un `otherwise:`), usá solo campos que tengan
+    **todos** los tipos restantes — o agregá una rama
+    `elseif isType(s, B)` explícita por tipo. Es la misma causa raíz que la
+    [limitación de los OR-patterns](../errors.md#las-ramas-negativas-y-los-or-patterns-no-estrechan-a-un-unico-tipo),
+    marcada para mejorar en una revisión futura.
+
 ## Reglas
 
 !!! info "`is` es una soft keyword"

@@ -143,17 +143,23 @@ compilador lo registra como test known-failing (BUG-1). Workarounds: iterá
 con `for s in v loop`, o ligá el slice a un array primero
 (`Real xs[size(v)] = v.x;`) e indexá ese.
 
-### Los OR-patterns no estrechan por tipo matcheado
+### Las ramas negativas y los OR-patterns no estrechan a un único tipo
 
-Bajo `case A | B:` el cuerpo se emite para **ambos** tipos, así que solo
-puede usar campos compartidos por todos ellos; un campo específico de un
-subtipo falla con un error genérico `Variable ... not found in scope` (no un
-mensaje `PolyModelica:` dedicado) que apunta al componente generado. Es una
-limitación conocida, marcada para mejorar en una revisión futura —
-idealmente con estrechamiento por tipo dentro de los OR-patterns, o al menos
-con un mensaje de error dedicado. Por ahora, partí el case
-(`case A:` / `case B:`) cuando los cuerpos necesitan campos específicos del
-subtipo.
+Las ramas que matchean **más de un** tipo concreto emiten su cuerpo una vez
+por sub-array que matchea, así que el cuerpo solo puede usar campos
+compartidos por todos esos tipos. Esto aplica a:
+
+- los OR-patterns `case A | B:` de un `match`,
+- los cuerpos de `otherwise:`,
+- las ramas `else` / negadas de cadenas `if s is A`.
+
+Un campo específico de un subtipo en un cuerpo así falla con un error
+genérico `Variable ... not found in scope` (no un mensaje `PolyModelica:`
+dedicado) que apunta al componente generado. Es una limitación conocida,
+marcada para mejorar en una revisión futura — idealmente con chequeo por
+tipo y un mensaje de error dedicado. Por ahora, escribí una rama explícita
+por tipo (`case A:` / `case B:`, o `elseif isType(s, B)`) cuando un cuerpo
+necesita campos específicos del subtipo.
 
 ### Alcance de las construcciones
 

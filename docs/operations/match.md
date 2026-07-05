@@ -99,8 +99,9 @@ so fields declared in `Mid` are accessible.
     ```
 
     Split the case (`case A:` / `case B:`) when the bodies need
-    subtype-specific fields. This is a
-    [known limitation](../errors.md#or-patterns-do-not-narrow-per-matched-type)
+    subtype-specific fields. The same applies to `otherwise:` bodies. This
+    is a
+    [known limitation](../errors.md#negative-branches-and-or-patterns-do-not-narrow-to-a-single-type)
     slated to be improved in a future revision.
 
 ## Rules

@@ -142,15 +142,22 @@ a known-failing test (BUG-1). Workarounds: iterate with `for s in v loop`,
 or bind the slice to an array first (`Real xs[size(v)] = v.x;`) and index
 that.
 
-### OR-patterns do not narrow per matched type
+### Negative branches and OR-patterns do not narrow to a single type
 
-Under `case A | B:` the body is emitted for **both** types, so it may only
-use fields shared by all of them; a subtype-only field fails with a generic
+Branches that match **more than one** concrete type emit their body once per
+matching sub-array, so the body may only use fields shared by all of those
+types. This applies to:
+
+- `case A | B:` OR-patterns in a `match`,
+- `otherwise:` bodies,
+- `else` / negated branches of `if s is A` chains.
+
+A subtype-only field in such a body fails with a generic
 `Variable ... not found in scope` error (not a dedicated `PolyModelica:`
 message) pointing at the generated component. This is a known limitation
-slated to be improved in a future revision — ideally with per-type
-narrowing inside OR-patterns, or at least a dedicated error message. For
-now, split the case (`case A:` / `case B:`) when the bodies need
+slated to be improved in a future revision — ideally with per-type checking
+and a dedicated error message. For now, write one explicit branch per type
+(`case A:` / `case B:`, or `elseif isType(s, B)`) when a body needs
 subtype-specific fields.
 
 ### Scope of the constructs

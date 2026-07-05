@@ -61,6 +61,24 @@ tested type, so fields that only exist on the subtype are accessible:
 
 `s.a` is legal in the `then` branch because there `s` is known to be an `A`.
 
+!!! warning "`else` narrows to *the remaining types*, not to one type"
+
+    The `else` branch is emitted for **every** sub-array whose condition is
+    false. `s.b` above works only because `B` is the only non-`A` type in
+    the polyvector. With a third type `C` (without a field `b`) the same
+    model fails to compile with a generic error pointing at the generated
+    component:
+
+    ```
+    Error: Variable base_v_c[s].b not found in scope
+    ```
+
+    In an `else` (or an `otherwise:`) body, only use fields that **all**
+    remaining types have — or add an explicit `elseif isType(s, B)` branch
+    per type. Same root cause as the
+    [OR-pattern limitation](../errors.md#negative-branches-and-or-patterns-do-not-narrow-to-a-single-type),
+    slated to be improved in a future revision.
+
 ## Rules
 
 !!! info "`is` is a soft keyword"
