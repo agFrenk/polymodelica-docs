@@ -23,9 +23,9 @@ model DispatchIs
 equation
   for s in v loop
     if s is A then
-      w[s] = s.a;   // s is narrowed to A here
-    else
-      w[s] = s.b;   // emitted for every non-A type; works because B is the only one
+      w[s] = s.a;       // s is narrowed to A here
+    elseif s is B then
+      w[s] = s.b;       // and to B here
     end if;
   end for;
 end DispatchIs;

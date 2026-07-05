@@ -60,22 +60,35 @@ subtipo son accesibles:
 --8<-- "DispatchIs.mo"
 ```
 
-`s.a` es legal en la rama `then` porque ahí se sabe que `s` es un `A`.
+`s.a` es legal en la rama `if s is A` porque ahí se sabe que `s` es un `A`,
+y `s.b` en la rama `elseif s is B` igual. Una rama explícita por tipo, como
+arriba, es el patrón recomendado siempre que un cuerpo necesite campos
+específicos del subtipo.
 
 !!! warning "El `else` estrecha a *los tipos restantes*, no a un tipo"
 
-    La rama `else` se emite para **todos** los sub-arrays cuya condición dio
-    falsa. `s.b` arriba funciona solo porque `B` es el único tipo no-`A` del
-    polyvector. Con un tercer tipo `C` (sin campo `b`) el mismo modelo no
-    compila, con un error genérico que apunta al componente generado:
+    **No** confíes en un `else` para llegar a campos específicos de un
+    subtipo:
+
+    ```modelica
+    if s is A then
+      w[s] = s.a;
+    else
+      w[s] = s.b;   // frágil: se emite para TODO tipo no-A
+    end if;
+    ```
+
+    El cuerpo del `else` se emite para todos los sub-arrays cuya condición
+    dio falsa. Esto compila solo mientras `B` sea casualmente el único tipo
+    no-`A` del polyvector; agregá un tercer tipo `C` (sin campo `b`) y el
+    modelo falla con un error genérico que apunta al componente generado:
 
     ```
     Error: Variable base_v_c[s].b not found in scope
     ```
 
     En un cuerpo `else` (o un `otherwise:`), usá solo campos que tengan
-    **todos** los tipos restantes — o agregá una rama
-    `elseif isType(s, B)` explícita por tipo. Es la misma causa raíz que la
+    **todos** los tipos restantes. Es la misma causa raíz que la
     [limitación de los OR-patterns](../errors.md#las-ramas-negativas-y-los-or-patterns-no-estrechan-a-un-unico-tipo),
     marcada para mejorar en una revisión futura.
 
