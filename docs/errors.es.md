@@ -143,6 +143,18 @@ compilador lo registra como test known-failing (BUG-1). Workarounds: iterá
 con `for s in v loop`, o ligá el slice a un array primero
 (`Real xs[size(v)] = v.x;`) e indexá ese.
 
+### Los OR-patterns no estrechan por tipo matcheado
+
+Bajo `case A | B:` el cuerpo se emite para **ambos** tipos, así que solo
+puede usar campos compartidos por todos ellos; un campo específico de un
+subtipo falla con un error genérico `Variable ... not found in scope` (no un
+mensaje `PolyModelica:` dedicado) que apunta al componente generado. Es una
+limitación conocida, marcada para mejorar en una revisión futura —
+idealmente con estrechamiento por tipo dentro de los OR-patterns, o al menos
+con un mensaje de error dedicado. Por ahora, partí el case
+(`case A:` / `case B:`) cuando los cuerpos necesitan campos específicos del
+subtipo.
+
 ### Alcance de las construcciones
 
 Las formas de iteración, despacho y comprehension están especificadas (y

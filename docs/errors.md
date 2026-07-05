@@ -142,6 +142,17 @@ a known-failing test (BUG-1). Workarounds: iterate with `for s in v loop`,
 or bind the slice to an array first (`Real xs[size(v)] = v.x;`) and index
 that.
 
+### OR-patterns do not narrow per matched type
+
+Under `case A | B:` the body is emitted for **both** types, so it may only
+use fields shared by all of them; a subtype-only field fails with a generic
+`Variable ... not found in scope` error (not a dedicated `PolyModelica:`
+message) pointing at the generated component. This is a known limitation
+slated to be improved in a future revision — ideally with per-type
+narrowing inside OR-patterns, or at least a dedicated error message. For
+now, split the case (`case A:` / `case B:`) when the bodies need
+subtype-specific fields.
+
 ### Scope of the constructs
 
 Iteration, dispatch and comprehension forms are specified (and tested) as

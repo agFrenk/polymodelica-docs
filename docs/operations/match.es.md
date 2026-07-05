@@ -102,7 +102,9 @@ que los campos declarados en `Mid` son accesibles.
     ```
 
     Partí el case (`case A:` / `case B:`) cuando los cuerpos necesitan
-    campos específicos del subtipo.
+    campos específicos del subtipo. Es una
+    [limitación conocida](../errors.md#los-or-patterns-no-estrechan-por-tipo-matcheado)
+    marcada para arreglar en una revisión futura.
 
 ## Reglas
 
