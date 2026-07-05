@@ -26,14 +26,15 @@ polyvector Agent[5] agents = {Worker[3], Firm[2]};
 `agents` behaves as one five-element vector. On top of it the dialect gives
 you:
 
-| Feature | Example | |
+| Operation | Example | |
 | --- | --- | --- |
-| Field slices | `sum(agents.wealth)` | [Access and slicing](language/access.md) |
-| Indexing | `agents[4].wealth`, `agents[1:3].y` | [Access and slicing](language/access.md) |
-| Iteration | `for a in agents loop … end for` | [Iteration](language/iteration.md) |
-| Type predicates | `a is Worker`, `isSubtype(a, Mid)` | [Type dispatch](language/type-dispatch.md) |
-| Match by type | `match a case Worker: … end match` | [Type dispatch](language/type-dispatch.md) |
-| Comprehensions | `{a.wealth for a in agents if a is Worker}` | [Comprehensions](language/comprehensions.md) |
+| Project a field | `sum(agents.wealth)` | [Project a field](operations/project-field.md) |
+| Index an element | `agents[4].wealth` | [Index an element](operations/index-element.md) |
+| Slice a sub-range | `agents[1:3].y` | [Slice a sub-range](operations/slice-range.md) |
+| Iterate | `for a in agents loop … end for` | [Iterate](operations/iterate.md) |
+| Test an element's type | `a is Worker`, `isSubtype(a, Mid)` | [Test an element's type](operations/test-types.md) |
+| Dispatch with match | `match a case Worker: … end match` | [Dispatch with match](operations/match.md) |
+| Build arrays | `{a.wealth for a in agents if a is Worker}` | [Comprehensions](operations/comprehend.md) |
 
 ## A complete example
 

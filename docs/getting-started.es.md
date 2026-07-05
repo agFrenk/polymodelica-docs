@@ -94,5 +94,6 @@ simulate(Economy, stopTime = 10); getErrorString();
 val(totalWealth, 10);
 ```
 
-Seguí con la [guía del lenguaje](language/polyvector.md), o saltá al
+Seguí con la referencia de operaciones — empezando por
+[Declarar un polyvector](operations/declare.md) — o saltá al
 [walkthrough de Economy](examples.md).

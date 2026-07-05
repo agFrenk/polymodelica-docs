@@ -1,14 +1,18 @@
-# Comprehensions
+# Construir arrays (comprehensions)
 
-Las comprehensions construyen arrays (o alimentan reducciones) a partir de
-un polyvector, elemento a elemento, opcionalmente filtradas por tipo.
+Construir un array — o alimentar una reducción — a partir de un polyvector,
+elemento a elemento, opcionalmente quedándote solo con los elementos de
+ciertos tipos.
 
-## Comprehensions de array y de reducción
+## Sintaxis
 
 ```modelica
-{expr(s) for s in v}          // array, una entrada por elemento
-sum(expr(s) for s in v)       // reducción, también min/max/product
+{expr(s) for s in v}                    // array, una entrada por elemento
+sum(expr(s) for s in v)                 // reducción, también min/max/product
+{expr(s) for s in v if <test de tipo>}  // filtrada
 ```
+
+## Ejemplo
 
 === "PolyModelica"
 
@@ -32,17 +36,10 @@ literales de array explícitos — un término por elemento, en orden lógico.
 Funcionan en ecuaciones y en bindings (ecuaciones de declaración), p.ej.
 `parameter Real sq[4] = {s.w * s.w for s in v};`.
 
-## Filtros por predicado de tipo
+## Filtrar por tipo
 
-Un filtro conserva solo los elementos que matchean un **predicado de tipo**:
-
-```modelica
-{expr(s) for s in v if <predicado>}
-```
-
-donde el predicado es `s is T`, `isType(s, T)` o `isSubtype(s, T)`,
-posiblemente combinados con `and` / `or` / `not`
-(mirá [Despacho por tipo](type-dispatch.md)).
+El filtro es un [predicado de tipo](test-types.md) — `s is T`,
+`isType(s, T)`, `isSubtype(s, T)`, combinados con `and` / `or` / `not`:
 
 === "PolyModelica"
 
@@ -64,8 +61,6 @@ posiblemente combinados con `and` / `or` / `not`
       totalA = sum({base_v_a[1].x, base_v_a[2].x});
     ```
 
-Dos cosas para notar:
-
 - **El largo del resultado es la cantidad de elementos que matchean**, no el
   tamaño del polyvector — `as` tiene 2 entradas, no 6. Como los filtros se
   resuelven en tiempo de compilación, el largo sigue siendo una constante de
@@ -75,7 +70,7 @@ Dos cosas para notar:
   filtro, y `s.c` en la segunda porque `isSubtype(s, Mid)` selecciona todo
   el subárbol debajo de `Mid`.
 
-## Solo se permiten filtros de tipo
+## Reglas
 
 El filtro tiene que ser decidible por sub-array en tiempo de elaboración.
 Una condición sobre **valores** de runtime se rechaza:
@@ -86,6 +81,12 @@ bad = {s.x for s in v if s.x > 10};
 // (s is T, isType(s, T), isSubtype(s, T), combined with and/or/not)
 ```
 
-Para selección dependiente de valores, calculá sobre el slice completo con
-medios Modelica estándar (p.ej. `noEvent(if ... then ... else ...)` elemento
-a elemento sobre `v.x`) o resolvelo dentro de un loop `for`.
+Para selección dependiente de valores, calculá sobre la proyección completa
+con medios Modelica estándar (p.ej. `noEvent(if ... then ... else ...)`
+elemento a elemento sobre `v.x`) o resolvelo dentro de un loop `for`.
+
+## Relacionado
+
+- [Proyectar un campo](project-field.md) — cuando la expresión es un solo
+  campo
+- [Iterar](iterate.md) — ecuaciones por elemento en vez de un array

@@ -70,12 +70,17 @@ plugins:
           nav_translations:
             Home: Inicio
             Getting started: Primeros pasos
-            Language guide: Guía del lenguaje
-            Polyvectors: Polyvectors
-            Access and slicing: Acceso y slicing
-            Iteration: Iteración
-            Type dispatch: Despacho por tipo
-            Comprehensions: Comprehensions
+            Operations: Operaciones
+            Declare a polyvector: Declarar un polyvector
+            Query size and types: Consultar tamaño y tipos
+            Index an element: Indexar un elemento
+            Project a field: Proyectar un campo
+            Slice a sub-range: Slicear un sub-rango
+            Connect slices: Conectar slices
+            Iterate: Iterar
+            Test an element's type: Consultar el tipo de un elemento
+            Dispatch with match: Despachar con match
+            Build arrays (comprehensions): Construir arrays (comprehensions)
             Lowering: Lowering
             Errors and limitations: Errores y limitaciones
             Examples: Ejemplos
@@ -83,12 +88,17 @@ plugins:
 nav:
   - Home: index.md
   - Getting started: getting-started.md
-  - Language guide:
-      - Polyvectors: language/polyvector.md
-      - Access and slicing: language/access.md
-      - Iteration: language/iteration.md
-      - Type dispatch: language/type-dispatch.md
-      - Comprehensions: language/comprehensions.md
+  - Operations:
+      - Declare a polyvector: operations/declare.md
+      - Query size and types: operations/cardinality.md
+      - Index an element: operations/index-element.md
+      - Project a field: operations/project-field.md
+      - Slice a sub-range: operations/slice-range.md
+      - Connect slices: operations/connect.md
+      - Iterate: operations/iterate.md
+      - Test an element's type: operations/test-types.md
+      - Dispatch with match: operations/match.md
+      - Build arrays (comprehensions): operations/comprehend.md
   - Lowering: lowering.md
   - Errors and limitations: errors.md
   - Examples: examples.md

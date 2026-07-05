@@ -1,15 +1,17 @@
-# Iteración
+# Iterar
 
-Dos maneras de recorrer un polyvector: iterar los **elementos** directamente
-(`for s in v`), o iterar un **rango numérico** e indexar (`v[i]`). Difieren
-en qué es el iterador — una instancia vs. un entero — y en cómo se lowean.
+Recorrer los elementos de un polyvector. Dos formas: iterar los
+**elementos** directamente (`for s in v` — el iterador es una instancia, y
+el despacho por subtipo funciona sobre él), o iterar un **rango numérico** e
+indexar (`for i in 1:size(v)` con `v[i]`).
 
-## Iteración por elementos: `for s in v`
+## Iterar elementos: `for s in v`
 
 El iterador queda ligado a cada elemento por turno, con su tipo concreto
-conocido por sub-array, así que el despacho por subtipo dentro del cuerpo
-funciona (mirá [Despacho por tipo](type-dispatch.md)). Usado dentro de
-subíndices de arrays, `s` actúa como el índice lógico del elemento.
+conocido por sub-array — esto es lo que habilita los
+[tests de tipo](test-types.md) y el [match](match.md) en el cuerpo. Usado
+dentro de subíndices de arrays, `s` actúa como el índice lógico del
+elemento.
 
 === "PolyModelica"
 
@@ -30,15 +32,15 @@ subíndices de arrays, `s` actúa como el índice lógico del elemento.
       end for;
     ```
 
-El loop se parte en un loop por sub-array. Cada uno corre sobre el rango
-*local* `1:n`; los subíndices de otros arrays que usan el iterador reciben
-el offset global del sub-array (`w[3 + s]`).
+El loop se parte en un loop por sub-array, cada uno sobre el rango *local*
+`1:n`; los subíndices de otros arrays que usan el iterador reciben el offset
+global del sub-array (`w[3 + s]`).
 
-## Iteración numérica: `for i in 1:size(v)`
+## Iterar por índice: `for i in 1:size(v)`
 
-Un loop entero común cuyo cuerpo indexa el polyvector también funciona. El
-rango se parte en los bordes de los sub-arrays; acá los rangos conservan sus
-límites **globales** y el subíndice del polyvector es el que se re-basa:
+Un loop entero común cuyo cuerpo indexa el polyvector. El rango se parte en
+los bordes de los sub-arrays; los rangos conservan sus límites **globales**
+y el subíndice del polyvector es el que se re-basa:
 
 === "PolyModelica"
 
@@ -59,11 +61,11 @@ límites **globales** y el subíndice del polyvector es el que se re-basa:
       end for;
     ```
 
-Un rango no tiene que cubrir todo el vector ni alinearse con los bordes de
+El rango no tiene que cubrir todo el vector ni alinearse con los bordes de
 los sub-arrays — `for i in 2:4 loop` sobre `{A[3], B[2]}` se parte en `2:3`
 y `4:4`.
 
-## Loops anidados y multi-iterador
+## Anidar loops
 
 Los iteradores de polyvector componen: las cadenas de iteradores separados
 por coma y los loops físicamente anidados son equivalentes y ambos producen
@@ -101,18 +103,25 @@ cualquier nivel de anidamiento.
       end for;
     ```
 
+## Reglas
+
 !!! warning "Como máximo 5 iteradores de polyvector por cadena de for"
 
     El lowering multiplica las combinaciones de sub-arrays, así que el
     código generado crece con el producto cartesiano. Una única cadena de
     for puede iterar sobre a lo sumo **5** polyvectors; un sexto es un error
-    de compilación.
-
-## Notas
+    de compilación
+    ([Errores y limitaciones](../errors.md#errores-de-despacho-e-iteracion)).
 
 - Todas las formas de arriba son construcciones de sección de ecuaciones
   (ahí es donde las ejercita la test suite del dialecto).
 - Un sub-array vacío (`A[0]`) se lowea a un loop `1:0`, que simplemente
   itera cero veces.
-- Para construir arrays en vez de escribir ecuaciones por elemento, mirá
-  [Comprehensions](comprehensions.md).
+
+## Relacionado
+
+- [Consultar el tipo de un elemento](test-types.md) y
+  [Despachar con match](match.md) — comportamiento por tipo dentro del
+  cuerpo del loop
+- [Construir arrays (comprehensions)](comprehend.md) — construir un array en
+  vez de escribir ecuaciones por elemento

@@ -18,10 +18,10 @@ Todo lo específico de PolyModelica en ~30 líneas:
   (crecimiento lineal vs. exponencial).
 - `polyvector Agent[5] agents = {Worker[3], Firm[2]};` declara la población
   mixta.
-- `sum(agents.wealth)` agrega sobre **todos** los agentes con un
-  [field slice](language/access.md#field-slices-vfield).
-- `for a in agents loop` + `match` aplica una tasa de impuesto por tipo con
-  [despacho por tipo](language/type-dispatch.md) — 15% para workers, 30%
+- `sum(agents.wealth)` agrega sobre **todos** los agentes
+  [proyectando un campo](operations/project-field.md).
+- `for a in agents loop` + `match` aplica una tasa de impuesto por tipo
+  [despachando con match](operations/match.md) — 15% para workers, 30%
   para el resto.
 
 ## Lo que ve el compilador

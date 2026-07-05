@@ -26,14 +26,15 @@ polyvector Agent[5] agents = {Worker[3], Firm[2]};
 `agents` se comporta como un único vector de cinco elementos. Sobre eso, el
 dialecto ofrece:
 
-| Funcionalidad | Ejemplo | |
+| Operación | Ejemplo | |
 | --- | --- | --- |
-| Field slices | `sum(agents.wealth)` | [Acceso y slicing](language/access.md) |
-| Indexación | `agents[4].wealth`, `agents[1:3].y` | [Acceso y slicing](language/access.md) |
-| Iteración | `for a in agents loop … end for` | [Iteración](language/iteration.md) |
-| Predicados de tipo | `a is Worker`, `isSubtype(a, Mid)` | [Despacho por tipo](language/type-dispatch.md) |
-| Match por tipo | `match a case Worker: … end match` | [Despacho por tipo](language/type-dispatch.md) |
-| Comprehensions | `{a.wealth for a in agents if a is Worker}` | [Comprehensions](language/comprehensions.md) |
+| Proyectar un campo | `sum(agents.wealth)` | [Proyectar un campo](operations/project-field.md) |
+| Indexar un elemento | `agents[4].wealth` | [Indexar un elemento](operations/index-element.md) |
+| Slicear un sub-rango | `agents[1:3].y` | [Slicear un sub-rango](operations/slice-range.md) |
+| Iterar | `for a in agents loop … end for` | [Iterar](operations/iterate.md) |
+| Consultar el tipo | `a is Worker`, `isSubtype(a, Mid)` | [Consultar el tipo de un elemento](operations/test-types.md) |
+| Despachar con match | `match a case Worker: … end match` | [Despachar con match](operations/match.md) |
+| Construir arrays | `{a.wealth for a in agents if a is Worker}` | [Comprehensions](operations/comprehend.md) |
 
 ## Un ejemplo completo
 
